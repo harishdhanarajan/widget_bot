@@ -1,0 +1,20 @@
+{
+  "name": "widget-chatbot",
+  "version": "0.0.1",
+  "private": true,
+  "description": "An embeddable chat widget that installs into any website with one <script> tag.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n widget,mock,demo -c blue,magenta,yellow \"npm:dev:loader\" \"npm:dev:mock\" \"npm:dev:demo\"",
+    "dev:loader": "npm -w @widget-chatbot/loader run dev",
+    "dev:mock": "npm -w @widget-chatbot/mock-server run dev",
+    "dev:demo": "http-server . -p 4000 -c-1 -s",
+    "build": "npm -w @widget-chatbot/loader run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "http-server": "^14.1.1"
+  }
+}

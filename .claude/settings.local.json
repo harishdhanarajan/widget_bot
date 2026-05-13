@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir c:\\\\Users\\\\Harish\\\\Desktop\\\\coding\\\\widget_chatbot)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npm -w @widget-chatbot/loader run typecheck)",
+      "Bash(npm -w @widget-chatbot/app run typecheck)",
+      "Read(//c/Users/Harish/AppData/Local/Temp/claude/c--Users-Harish-Desktop-coding-widget-chatbot/22a79a7b-1976-4d98-92ab-f378c35d162b/tasks/**)",
+      "Bash(curl -s -o /dev/null -w \"demo page \\(4000\\): HTTP %{http_code}\\\\n\" http://localhost:4000/demo/)",
+      "Bash(curl -s -o /dev/null -w \"widget.js   \\(4000\\): HTTP %{http_code}\\\\n\" http://localhost:4000/packages/loader/dist/widget.js)",
+      "Bash(curl -s -o /dev/null -w \"app         \\(5173\\): HTTP %{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"demo  \\(4000\\): HTTP %{http_code}\\\\n\" http://localhost:4000/demo/)",
+      "Bash(curl -s -o /dev/null -w \"wjs   \\(4000\\): HTTP %{http_code}\\\\n\" http://localhost:4000/packages/loader/dist/widget.js)",
+      "Bash(curl -s -o /dev/null -w \"app   \\(5173\\): HTTP %{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"mock  \\(4002\\): HTTP %{http_code}\\\\n\" http://localhost:4002/health)",
+      "Bash(curl -s -X POST http://localhost:4002/chat -H \"Content-Type: application/json\" -d '{\"siteId\":\"acme-demo\",\"conversationId\":\"test-123\",\"message\":\"How long does shipping take?\"}')",
+      "PowerShell($ports = 4000, 4001, 4002, 5173; foreach \\($p in $ports\\) { $procs = Get-NetTCPConnection -LocalPort $p -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; foreach \\($pid in $procs\\) { try { Stop-Process -Id $pid -Force -ErrorAction Stop; Write-Output \"killed PID $pid on port $p\" } catch { Write-Output \"could not kill PID $pid on port $p : $_\" } } }; Write-Output \"---\"; foreach \\($p in $ports\\) { $still = Get-NetTCPConnection -LocalPort $p -ErrorAction SilentlyContinue; if \\($still\\) { Write-Output \"port $p STILL in use\" } else { Write-Output \"port $p free\" } })",
+      "PowerShell($ports = 4000, 4001, 4002, 5173; foreach \\($p in $ports\\) { $procs = Get-NetTCPConnection -LocalPort $p -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique; foreach \\($procId in $procs\\) { try { Stop-Process -Id $procId -Force -ErrorAction Stop; Write-Output \"killed PID $procId on port $p\" } catch { Write-Output \"could not kill PID $procId on port $p\" } } }; Write-Output \"---\"; foreach \\($p in $ports\\) { $still = Get-NetTCPConnection -LocalPort $p -ErrorAction SilentlyContinue; if \\($still\\) { Write-Output \"port $p STILL in use\" } else { Write-Output \"port $p free\" } })",
+      "PowerShell($path = \"c:\\\\Users\\\\Harish\\\\Desktop\\\\coding\\\\widget_chatbot\\\\packages\\\\app\"; Get-ChildItem -Path $path -Recurse -Force | Sort-Object FullName -Descending | ForEach-Object { try { Remove-Item -LiteralPath $_.FullName -Force -ErrorAction Stop; Write-Output \"rm $\\($_.FullName\\)\" } catch { Write-Output \"FAIL $\\($_.FullName\\): $\\($_.Exception.Message\\)\" } }; Start-Sleep -Milliseconds 500; try { Remove-Item -LiteralPath $path -Force -ErrorAction Stop; Write-Output \"rm packages/app DIR\" } catch { Write-Output \"FAIL dir: $\\($_.Exception.Message\\)\" })",
+      "PowerShell($path = \"c:\\\\Users\\\\Harish\\\\Desktop\\\\coding\\\\widget_chatbot\\\\packages\\\\app\"; Write-Output \"Exists: $\\(Test-Path $path\\)\"; Write-Output \"Contents:\"; Get-ChildItem -Path $path -Force -ErrorAction Continue | ForEach-Object { Write-Output \"  $\\($_.FullName\\)\" }; Write-Output \"---\"; Write-Output \"Try via cmd rmdir:\"; cmd /c \"rmdir /S /Q `\"$path`\" 2>&1\"; Write-Output \"After: Exists = $\\(Test-Path $path\\)\")",
+      "PowerShell(Get-Process node -ErrorAction SilentlyContinue | Select-Object Id, ProcessName, StartTime, @{N='CmdLine';E={\\(Get-CimInstance Win32_Process -Filter \"ProcessId=$\\($_.Id\\)\"\\).CommandLine}} | Format-List)",
+      "Bash(curl -s -X POST http://localhost:4002/chat -H \"Content-Type: application/json\" -d '{\"siteId\":\"acme-demo\",\"conversationId\":\"test-2\",\"message\":\"test\"}' -w \"\\\\nHTTP %{http_code}\\\\n\")",
+      "Bash(git config *)"
+    ]
+  }
+}
