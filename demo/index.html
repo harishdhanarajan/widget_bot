@@ -37,9 +37,10 @@
     <p class="arrow">↘</p>
 
     <!--
-      In production, the src would point to a CDN. In dev, http-server serves
-      the project root so we reach into packages/loader/dist/ directly.
+      In production, the src would point to a CDN (e.g. https://your-project.vercel.app/widget.js).
+      In dev, http-server serves the project root so /dist/widget.js resolves
+      to the same file Vercel will serve at /widget.js after deploy.
     -->
-    <script src="/packages/loader/dist/widget.js" data-site-id="acme-demo" async></script>
+    <script src="/dist/widget.js" data-site-id="acme-demo" async></script>
   </body>
 </html>

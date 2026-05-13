@@ -15,6 +15,10 @@ export default defineConfig(({ mode }) => ({
     ),
   },
   build: {
+    // Output to the project-root `dist/` so Vercel (and most static hosts)
+    // find it with their default expectations. Locally, the demo page at
+    // /demo/ loads /dist/widget.js — same path that Vercel will serve.
+    outDir: resolve(__dirname, '../../dist'),
     lib: {
       entry: resolve(__dirname, 'src/main.tsx'),
       name: 'WidgetChatbot',
