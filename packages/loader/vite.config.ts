@@ -8,17 +8,17 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   // React reads `process.env.NODE_ENV` to switch between dev and prod code
   // paths. Browsers have no `process` global, so we must statically replace
-  // this at build time — otherwise the bundle throws ReferenceError on load.
+  // this at build time; otherwise the bundle throws ReferenceError on load.
   define: {
     'process.env.NODE_ENV': JSON.stringify(
       mode === 'production' ? 'production' : 'development',
     ),
   },
   build: {
-    // Output to the project-root `dist/` so Vercel (and most static hosts)
-    // find it with their default expectations. Locally, the demo page at
-    // /demo/ loads /dist/widget.js — same path that Vercel will serve.
-    outDir: resolve(__dirname, '../../dist'),
+    // Keep package builds inside the package so Vercel finds `dist` when this
+    // package is configured as the project root. The root build copies this
+    // folder back to ./dist for the demo and root-level static hosting.
+    outDir: resolve(__dirname, 'dist'),
     lib: {
       entry: resolve(__dirname, 'src/main.tsx'),
       name: 'WidgetChatbot',

@@ -11,7 +11,7 @@
     "dev:loader": "npm -w @widget-chatbot/loader run dev",
     "dev:mock": "npm -w @widget-chatbot/mock-server run dev",
     "dev:demo": "http-server . -p 4000 -c-1 -s",
-    "build": "npm -w @widget-chatbot/loader run build"
+    "build": "npm -w @widget-chatbot/loader run build && node scripts/copy-loader-dist.mjs"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",
