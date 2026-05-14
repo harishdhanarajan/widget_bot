@@ -21,7 +21,8 @@
       "PowerShell($path = \"c:\\\\Users\\\\Harish\\\\Desktop\\\\coding\\\\widget_chatbot\\\\packages\\\\app\"; Write-Output \"Exists: $\\(Test-Path $path\\)\"; Write-Output \"Contents:\"; Get-ChildItem -Path $path -Force -ErrorAction Continue | ForEach-Object { Write-Output \"  $\\($_.FullName\\)\" }; Write-Output \"---\"; Write-Output \"Try via cmd rmdir:\"; cmd /c \"rmdir /S /Q `\"$path`\" 2>&1\"; Write-Output \"After: Exists = $\\(Test-Path $path\\)\")",
       "PowerShell(Get-Process node -ErrorAction SilentlyContinue | Select-Object Id, ProcessName, StartTime, @{N='CmdLine';E={\\(Get-CimInstance Win32_Process -Filter \"ProcessId=$\\($_.Id\\)\"\\).CommandLine}} | Format-List)",
       "Bash(curl -s -X POST http://localhost:4002/chat -H \"Content-Type: application/json\" -d '{\"siteId\":\"acme-demo\",\"conversationId\":\"test-2\",\"message\":\"test\"}' -w \"\\\\nHTTP %{http_code}\\\\n\")",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(git *)"
     ]
   }
 }

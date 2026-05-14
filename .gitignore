@@ -5,3 +5,6 @@ dist/
 .env
 .env.local
 .vite/
+
+# Claude Code: keep agent definitions + memory shared, ignore per-machine settings
+.claude/settings.local.json
